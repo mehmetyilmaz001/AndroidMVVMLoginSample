@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ninjakod.androidmvvmloginsample.ViewModel.LoginViewModel"
+            />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            >
+
+            <EditText
+                android:id="@+id/txtUserName"
+                android:hint="Username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                app:addTextChangedListener="@{viewModel.getUserNameTextWatcher}"
+                />
+
+            <EditText
+                android:id="@+id/txtPassword"
+                android:hint="Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:layout_marginTop="10dp"
+                app:addTextChangedListener="@{viewModel.getPasswordTextWatcher}"
+
+                />
+
+            <Button
+                android:id="@+id/btn_login"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOGIN"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="113dp"
+                android:onClick="@{viewModel::onLoginClicked}"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
